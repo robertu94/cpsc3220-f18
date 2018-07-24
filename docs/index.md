@@ -19,11 +19,11 @@ By appointment as needed
 The course materials described below are living documents and will be updated as the semester progresses.
 Students are expected to review these documents regularly (i.e. at least once a week)
 
-Course Website: [robertu94.github.io/cpsc3220-f18](robertu94.github.io/cpsc3220-f18)
+Course Website: [robertu94.github.io/cpsc3220-f18](https://robertu94.github.io/cpsc3220-f18/)
 
 Schedule:  [Google Calendar](https://calendar.google.com/calendar/embed?src=g.clemson.edu_q3ufj6c56eevjftssug8tfnpeg%40group.calendar.google.com&ctz=America%2FNew_York)
 
-Repository: [git clone https://github.com/robertu94/cspc3220-f18](https://github.com/robertu94/cspc3220-f18)
+Repository: [git clone https://github.com/robertu94/cpsc3220-f18](https://github.com/robertu94/cpsc3220-f18)
 
 Assignment Submissions: [handin.cs.clemson.edu](handin.cs.clemson.edu)
 
