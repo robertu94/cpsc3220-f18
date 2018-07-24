@@ -15,7 +15,7 @@ Office Hours: TBD
 
 By appointment as needed
 
-## Instructor Late and Incriminate Weather Policy
+## Instructor Late and Inclement Weather Policy
 
 If the instructor should ever be more than 10 minutes late or the university is closed (for example due to inclimate weather), you may assume that class has been canceled.
 In this case, please check email for further explanation.
@@ -88,7 +88,7 @@ By the end of the course students will be able to:
 +	Compare and contrast the common algorithms used for both preemptive and non-preemptive scheduling of tasks in operating systems, such as priority, performance comparison, and fair-share schemes.
 +	Describe the principles of memory management, including virtual memory management.
 
-This section of this class will students will:
+In this section of this class, students will:
 
 +	Explain the **fundamental** and **emerging** concepts in Operating Systems described above
 +	Explain the interactions between hardware and software that are expressed in modern operating systems
