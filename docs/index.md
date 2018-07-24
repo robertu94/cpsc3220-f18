@@ -1,12 +1,13 @@
 # Introduction to Operating Systems 
 
-CPSC/ECE 3220 -- Section 002 -- Fall 2018
+CPSC/ECE 3220 -- Section 002 -- Fall 2018 (3 credits)
 
 ## Course Metadata
 
 Time and Location: MW 14:30-15:45 (Jordan Hall G033)
 
-Instructor: Robert Underwood, <robertu@.clemson.edu>
+
+Instructor: Robert Underwood, <robertu@g.clemson.edu>
 
 Office: 221 McAdams
 
@@ -14,10 +15,16 @@ Office Hours: TBD
 
 By appointment as needed
 
+## Instructor Late and Incriminate Weather Policy
+
+If the instructor should ever be more than 10 minutes late or the university is closed (for example due to inclimate weather), you may assume that class has been canceled.
+In this case, please check email for further explanation.
+
 ## Course Materials
 
+This syllabus represents a general plan for the class; deviations will be announced in class by the instructor and this document will be updated.
 The course materials described below are living documents and will be updated as the semester progresses.
-Students are expected to review these documents regularly (i.e. at least once a week)
+Students are expected to review these documents at least once a week.
 
 Course Website: [robertu94.github.io/cpsc3220-f18](https://robertu94.github.io/cpsc3220-f18/)
 
@@ -35,21 +42,29 @@ Such behavior may be considered a violation of academic integrity.
 
 All project requirements are posted in the course repository.
 The repository is managed using Git.
-If you are unfamiliar with Git, I recommend the [Atlassian tutorial](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud) or the [Git Book](https://git-scm.com/book/en/v2) if you need a more complete reference.
 Learning a source control management tool such as git well now will pay huge dividends once you get into industry.
 I can't express how important it is to learn this skill sooner rather than later.
 
-### Recommended Texts
+### Textbook Policy and Recommended Resources
 
-There is no required textbook for this course.
-Sufficient material will be presented in class to complete all assignments.
-However, there are numerous free on-line sources that I have found useful in my study of operating system:
+Required Textbook: None
 
-+	[Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/#book-chapters) -- An introductory operating system textbook that is free online
+Optional Textbooks: 
+
+These books are completely optional, sufficient material will be provided in classes to complete all assignments.
+
++	[Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/#book-chapters) -- An introductory operating system textbook that is free online
++	Operating Systems: Principles & Practice, 2nd edition, by Thomas Anderson and Michael Dahlin,  Recursive Books, 2014.
+
+Additional Optional Resources:
+
++	[Fedora Workstation](https://getfedora.org/en/workstation/download/) -- my recommended Linux distribution for new Linux users
++	[Ubuntu 18.04 LTS](https://www.ubuntu.com/download/desktop) -- another easy to use Linux distribution
 +	[The Linux Kernel](https://github.com/torvalds/linux) -- the source code for the Linux kernel
 +	[Linux Cross Reference](https://elixir.bootlin.com/linux/v4.16.9/source) -- a on-line quick-reference for Linux
 +	[The FreeBSD Kernel and Base System](https://github.com/freebsd/freebsd) -- the source code for the FreeBSD kernel
-
++	[Atlassian tutorial](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud)  if you are unfamiliar with git this is a good starter reference.
++	[Git Book](https://git-scm.com/book/en/v2) if you need a more complete git reference.
 
 ## Course Goals
 
@@ -64,29 +79,40 @@ The goal of this class is to prepare you to use both **fundamental** and **emerg
 
 ### Learning Outcomes
 
+
 By the end of the course students will be able to:
 
++	Explain the objectives and functions of a modern operating system.
++	Compare and contrast kernel and user mode in an operating system
++	Demonstrate the potential run-time problems arising from the concurrent operation of many separate tasks.
++	Compare and contrast the common algorithms used for both preemptive and non-preemptive scheduling of tasks in operating systems, such as priority, performance comparison, and fair-share schemes.
++	Describe the principles of memory management, including virtual memory management.
+
+This section of this class will students will:
+
 +	Explain the **fundamental** and **emerging** concepts in Operating Systems described above
-+	Explain the interactions between hardware and software that are expressed in modern operating system
++	Explain the interactions between hardware and software that are expressed in modern operating systems
 +	Be able to analyze trade-offs in system designs related to the above concepts
 +	Implement system monitoring tools that use OS facilities such as ptrace to observe operating system behavior
 +	Implement a threading library and a selection of synchronization primitives
 +	Implement policies for dynamic memory allocation.
 
-This is not a course on how to program.  Proficient programming ability in either C or C++ is expected, and you will likely get better at programming when you finish.
+This is not a course on how to program.  Proficient programming ability in either C or C++ is expected, but you will likely get better at programming when you finish.
 
 ## Prerequisites
 
 +	CPSC 2120 and CPSC 2310 with a C or better; or ECE 2230 and ECE 2720 with a C or better.
-+	Proficient with either C or C++
-+	Comfortable in a UNIX/Linux command line environment
+
+## Intended Audience
+
+CPSC 3220/ECE 3220 partially fulfills major requirements for computer science, computer information systems, and computer engineering majors. Since CPSC/ECE 3220 is a junior-level course with several programming course as pre-requisites, students are expected to be proficient in in C or C++ and be comfortable operating in a UNIX/Linux command line environment.
 
 ## Grading
 
 Weighting
 
 +	Assignments 50%
-+	Quizes 10%
++	Quizzes 10%
 +	Midterm 15%
 +	Final 20%
 +	Participation 5%
@@ -123,7 +149,7 @@ The feedback will provide information on which test cases you passed or failed.
 It takes time to grade all assignments even for an autograder -- especially as the deadline approaches.
 In the event you don't get a response by 1pm:  You should try the following, in order: 1) check your SPAM folder. 2) make sure that you really did submit new code. 3) make sure that the code you submitted wasn't the same as your previous submissions (the autograder only grades new code). 4) contact the grader. 5) contact me.
 
-## Quizes
+## Quizzes
 
 I will give short "pop quizzes" at the beginning of every class that will be used in part to take attendance.
 These quizzes may require you to enter information distributed during classes to ensure that you attend in person.
@@ -155,9 +181,6 @@ Being absent, excused or not, does not change the responsibility for assigned wo
 As a rule, No make up quizzes or exam will be given.
 If you arrive late, you will not be given additional time to complete the quiz or test.
 
-If I should ever be more than 10 minutes late, you may assume that class has been canceled.
-In this case, please check email for further explanation.
-
 ## Laptop Policy
 
 You are expected to have a laptop with a Linux programming environment running the Linux kernel (natively or in a VM).
@@ -177,7 +200,7 @@ There is no lab section for this course; however, the Ubuntu lab machines (joeys
 
 ## Grading Appeals
 
-I do occasionally make mistakes. If you think I made a mistake when grading an assignment, quiz, or exam, you should email me, with detailed justification, within one week of the date the grades are available. If you don't, your original grade will stand.
+I do occasionally make mistakes. If you think I made a mistake when grading an assignment, quiz, or exam, you should email me, with detailed justification, within one week of the date the grades are available.  If you don't, your original grade will stand.
 
 ## Email Policy
 
@@ -189,13 +212,14 @@ Remember that failure to plan and prepare on your part, does not constitute a cr
 
 ## Students with Disabilities
 
-In accordance with the University’s policy, I will do my best to provide reasonable accommodations to students with disabilities. Students should contact Student Disability Services and myself to discuss their individual needs for accommodation as early as possible—at least a week before special accommodations are needed. 
+Clemson University values the diversity of our student body as a strength and a critical component of our dynamic community. Students with disabilities or temporary injuries/conditions may require accommodations due to barriers in the structure of facilities, course design, technology used for curricular purposes, or other campus resources. Students who experience a barrier to full access to this class should let the professor know, and make an appointment to meet with a staff member in Student Accessibility Services as soon as possible. You can make an appointment by calling 864-656-6848, by emailing <studentaccess@lists.clemson.edu>, or by visiting Suite 239 in the Academic Success Center building. Appointments are strongly encouraged – drop-ins will be seen if at all possible, but there could be a significant wait due to scheduled appointments. Students who receive Academic Access Letters are strongly encouraged to request, obtain and present these to their professors as early in the semester as possible so that accommodations can be made in a timely manner. It is the student’s responsibility to follow this process each semester. You can access further information here: [http://www.clemson.edu/campus-life/campus-services/sds/](http://www.clemson.edu/campus-life/campus-services/sds/).
+
 
 ## Getting Help
 
 If you need help during this course, talk to me sooner rather than later; often a brief discussion will clarify things enough to get you back on track. The longer you wait, the harder it will be to catch up.
 
-If you are consistently having problems with the course content, you can also seek help from the Academic Success Center and take advantage of the tutoring and supplemental instruction opportunities they offer on a regular basis. If your specific class is not listed, the ASC will begin sessions for groups of three or more. The tutoring schedule is [available online](https://www.clemson.edu/asc/courses/tutoring/index.html).
+If you are consistently having problems with the course content, you can also seek help from the Academic Success Center and take advantage of the tutoring and supplemental instruction opportunities they offer on a regular basis. The tutoring schedule is [available online](https://www.clemson.edu/asc/courses/tutoring/index.html).
 
 ## Academic Integrity
 
@@ -203,10 +227,12 @@ Attempts to cheat on any graded activity will not be tolerated.
 
 The following represent a non-exhaustive list of academic integrity violations:
 
-+	If I suspect that you attempted to cheat the Autograder in any way such as by performing a denial of service attack, attempting to invalidly modify the autograder's any score produced by the autograder, or extract confidential information from the autograder: you will receive a score of zero, and this will be treated an academic integrity violation.
-+	If I suspect that you submitted work that is not your own, you will receive a score of 0, and this will be treated as an academic integrity violation.
-+	If I suspect that you performed unauthorized communication or utilize unauthorized resources during an exam or quiz, you will receive a score of 0, and this will be treated as an academic integrity violation.
-+	If I suspect that you attempt to falsify class roll for yourself or others in any way, you will receive a 0 on all graded activities that day, and this will be treated as an academic integrity violation.
++	attempt to cheat the Autograder in any way such as by performing a denial of service attack, attempting to invalidly modify the autograder's any score produced by the autograder, or extract confidential information from the autograder 
++	submit work that is not your own
++	perform unauthorized communication or utilize unauthorized resources during an exam or quiz
++	attempt or conspire to falsify class roll for yourself or others in any way
+
+If I suspect that you have committed an academic integrity violation. I will not hesitate to report you to the Clemson University Academic Integrity Committee.
 
 As members of the Clemson University community, we have inherited Thomas Green Clemson's vision of this institution as a “high seminary of learning.” Fundamental to this vision is a mutual commitment to truthfulness, honor, and responsibility, without which we cannot earn the trust and respect of others. Furthermore, we recognize that academic dishonesty detracts from the value of a Clemson degree. Therefore, we shall not tolerate lying, cheating, or stealing in any form.
 
