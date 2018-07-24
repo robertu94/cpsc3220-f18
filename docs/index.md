@@ -27,7 +27,7 @@ Repository: [git clone https://github.com/robertu94/cpsc3220-f18](https://github
 
 Assignment Submissions: [handin.cs.clemson.edu](https://handin.cs.clemson.edu)
 
-The class will also make use of [Canvas](clemson.instructure.edu) for grading, on-line quizzes, and course discussion.
+The class will also make use of [Canvas](https://clemson.instructure.com) for grading, on-line quizzes, and course discussion.
 Questions that could be helpful to all students should be asked on canvas.
 This allows me to answer questions once rather than many times.
 You should **NOT** post project source code or specific implementation information.
@@ -195,7 +195,7 @@ In accordance with the University’s policy, I will do my best to provide reaso
 
 If you need help during this course, talk to me sooner rather than later; often a brief discussion will clarify things enough to get you back on track. The longer you wait, the harder it will be to catch up.
 
-If you are consistently having problems with the course content, you can also seek help from the Academic Success Center and take advantage of the tutoring and supplemental instruction opportunities they offer on a regular basis. If your specific class is not listed, the ASC will begin sessions for groups of three or more. The tutoring schedule is [available online](http://www.clemson.edu/asc/tutoring/index.html).
+If you are consistently having problems with the course content, you can also seek help from the Academic Success Center and take advantage of the tutoring and supplemental instruction opportunities they offer on a regular basis. If your specific class is not listed, the ASC will begin sessions for groups of three or more. The tutoring schedule is [available online](https://www.clemson.edu/asc/courses/tutoring/index.html).
 
 ## Academic Integrity
 
@@ -214,7 +214,7 @@ Following the Clemson University Code of Student Conduct, academic dishonesty of
 
 ## Title IX
 
-The Clemson University Title IX (Sexual Harassment) statement must be included: Clemson University is committed to a policy of equal opportunity for all persons and does not discriminate on the basis of race, color, religion, sex, sexual orientation, gender, pregnancy, national origin, age, disability, veteran's status, genetic information or protected activity in employment, educational programs and activities, admissions and financial aid. This includes a prohibition against sexual harassment and sexual violence as mandated by Title IX of the Education Amendments of 1972. This policy is located at http://www.clemson.edu/campus- life/campus-services/access/title-ix/. Ms. Alesia Smith is the Clemson University Title IX Coordinator, and the Executive Director of Equity Compliance. Her office is located at 110 Holtzendorff Hall, 864.656.3181 (voice) or 864.656.0899 (TDD)
+The Clemson University Title IX (Sexual Harassment) statement must be included: Clemson University is committed to a policy of equal opportunity for all persons and does not discriminate on the basis of race, color, religion, sex, sexual orientation, gender, pregnancy, national origin, age, disability, veteran's status, genetic information or protected activity in employment, educational programs and activities, admissions and financial aid. This includes a prohibition against sexual harassment and sexual violence as mandated by Title IX of the Education Amendments of 1972. This policy is located at [http://www.clemson.edu/campus-life/campus-services/access/title-ix/](https://www.clemson.edu/asc/courses/tutoring/index.html). Ms. Alesia Smith is the Clemson University Title IX Coordinator, and the Executive Director of Equity Compliance. Her office is located at 110 Holtzendorff Hall, 864.656.3181 (voice) or 864.656.0899 (TDD)
 
 ### Acknowledgments
 
