@@ -25,7 +25,7 @@ Schedule:  [Google Calendar](https://calendar.google.com/calendar/embed?src=g.cl
 
 Repository: [git clone https://github.com/robertu94/cpsc3220-f18](https://github.com/robertu94/cpsc3220-f18)
 
-Assignment Submissions: [handin.cs.clemson.edu](handin.cs.clemson.edu)
+Assignment Submissions: [handin.cs.clemson.edu](https://handin.cs.clemson.edu)
 
 The class will also make use of [Canvas](clemson.instructure.edu) for grading, on-line quizzes, and course discussion.
 Questions that could be helpful to all students should be asked on canvas.
