@@ -11,7 +11,11 @@ Instructor: Robert Underwood, <robertu@g.clemson.edu>
 
 Office: 221 McAdams
 
-Office Hours: TBD
+Office Hours: 
+
++	Mondays 13:00-14:00
++	Wednesday 16:00-17:00
++	Friday 8:00-9:00
 
 By appointment as needed
 
