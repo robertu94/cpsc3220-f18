@@ -6,6 +6,8 @@ CPSC/ECE 3220 -- Section 002 -- Fall 2018 (3 credits)
 
 Time and Location: MW 14:30-15:45 (Jordan Hall G033)
 
+University Telephone: N/A
+
 
 Instructor: Robert Underwood, <robertu@g.clemson.edu>
 
@@ -21,8 +23,11 @@ By appointment as needed
 
 ## Instructor Late and Inclement Weather Policy
 
-If the instructor should ever be more than 10 minutes late or the university is closed (for example due to inclimate weather), you may assume that class has been canceled.
+If the instructor should ever be more than 10 minutes late or the university is closed (for example due to inclimate weather), you may assume that class (and the corresponding quiz) has been canceled.
+Exams will be rescheduled in a manner consistent with university policy.
 In this case, please check email for further explanation.
+
+Assignment deadlines will **not** be extended due to university closures.
 
 ## Course Materials
 
@@ -162,7 +167,7 @@ I will drop the lowest 3 quizzes.
 
 ## Exams
 
-There will be a midterm and final exam.  The content of these exams are cumulative and comprehensive.  The time and date are in the schedule.
+There will be a midterm and final exam.  The content of these exams are cumulative and comprehensive.  The time and date are in the schedule. No exemptions will be given.
 
 ## Office Hours
 
@@ -176,7 +181,7 @@ You are expected to participate in class activities (ask questions, make comment
 Doing so is for your good.
 I will assign participation points coarsely: 100% to fully-engaged students, 50% to nominally engaged (physically attend, but not volunteering questions/comments), and 0% for students who don't show up or are trying to hide.
 
-Attendance is critical in this class.
+Attendance required and is critical to success in this class.
 Not only is the material highly cumulative, hints and examples for projects will be given for projects.
 Any student with more then 3 unexcused absences will be dropped from the course.
 
@@ -214,10 +219,9 @@ As a rule, I will not respond to email after 5pm or before 8am.
 
 Remember that failure to plan and prepare on your part, does not constitute a crisis on mine. If you send me a project-related email right before a deadline, I may not answer it in time to be helpful.
 
-## Students with Disabilities
+## Accessibility Statement
 
-Clemson University values the diversity of our student body as a strength and a critical component of our dynamic community. Students with disabilities or temporary injuries/conditions may require accommodations due to barriers in the structure of facilities, course design, technology used for curricular purposes, or other campus resources. Students who experience a barrier to full access to this class should let the professor know, and make an appointment to meet with a staff member in Student Accessibility Services as soon as possible. You can make an appointment by calling 864-656-6848, by emailing <studentaccess@lists.clemson.edu>, or by visiting Suite 239 in the Academic Success Center building. Appointments are strongly encouraged – drop-ins will be seen if at all possible, but there could be a significant wait due to scheduled appointments. Students who receive Academic Access Letters are strongly encouraged to request, obtain and present these to their professors as early in the semester as possible so that accommodations can be made in a timely manner. It is the student’s responsibility to follow this process each semester. You can access further information here: [http://www.clemson.edu/campus-life/campus-services/sds/](http://www.clemson.edu/campus-life/campus-services/sds/).
-
+Clemson University values the diversity of our student body as a strength and a critical component of our dynamic community. Students with disabilities or temporary injuries/conditions may require accommodations due to barriers in the structure of facilities, course design, technology used for curricular purposes, or other campus resources. Students who experience a barrier to full access to this class should let the professor know, and make an appointment to meet with a staff member in Student Accessibility Services as soon as possible. You can make an appointment by calling 864-656-6848, by emailing <studentaccess@lists.clemson.edu>, or by visiting Suite 239 in the Academic Success Center building. Appointments are strongly encouraged – drop-ins will be seen if possible, but there could be a significant wait due to scheduled appointments. Students who receive Academic Access Letters are strongly encouraged to request, obtain and present these to their professors as early in the semester as possible so that accommodations can be made in a timely manner. It is the student’s responsibility to follow this process each semester. You can access further information here: [http://www.clemson.edu/campus-life/campus-services/sds/](http://www.clemson.edu/campus-life/campus-services/sds/).
 
 ## Getting Help
 
@@ -244,7 +248,11 @@ Following the Clemson University Code of Student Conduct, academic dishonesty of
 
 ## Title IX
 
-The Clemson University Title IX (Sexual Harassment) statement must be included: Clemson University is committed to a policy of equal opportunity for all persons and does not discriminate on the basis of race, color, religion, sex, sexual orientation, gender, pregnancy, national origin, age, disability, veteran's status, genetic information or protected activity in employment, educational programs and activities, admissions and financial aid. This includes a prohibition against sexual harassment and sexual violence as mandated by Title IX of the Education Amendments of 1972. This policy is located at [http://www.clemson.edu/campus-life/campus-services/access/title-ix/](https://www.clemson.edu/asc/courses/tutoring/index.html). Ms. Alesia Smith is the Clemson University Title IX Coordinator, and the Executive Director of Equity Compliance. Her office is located at 110 Holtzendorff Hall, 864.656.3181 (voice) or 864.656.0899 (TDD)
+Clemson University is committed to a policy of equal opportunity for all persons and does not discriminate on the basis of race, color, religion, sex, sexual orientation, gender, pregnancy, national origin, age, disability, veteran’s status, genetic information or protected activity in employment, educational programs and activities, admissions and financial aid. This includes a prohibition against sexual harassment and sexual violence as mandated by Title IX of the Education Amendments of 1972. This policy is located at [http://www.clemson.edu/campus-life/campus-services/access/title-ix/](http://www.clemson.edu/campus-life/campus-services/access/title-ix/). Ms. Alesia Smith is the Clemson University Title IX Coordinator, and the Executive Director of Equity Compliance. Her office is located at 110 Holtzendorff Hall, 864.656.3181 (voice) or 864.656.0899 (TDD).
+
+### Copyright Statement
+
+Materials in this course are subject to a variety of copyright licenses and provisions.  Consistent with US Law you may assume that all rights are retained except as otherwise specified in writing on the document.  Copyrighted documents are used either with permission of the author or under fair use guidelines.
 
 ### Acknowledgments
 
