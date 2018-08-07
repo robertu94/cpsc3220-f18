@@ -1,14 +1,14 @@
 uefi (firmware)
 efi-stub (loader)
+load the initrd image into ram
 start memory allocations (kernel)
 start other processors
 start the scheduler
 enable interrupt request lines
 start Advanced Configuration and Power Interface (ACPI)
-mount the root filesystem
+enumerate pci bus
 start the init process (pid 1)
 start the idle process (pid 0)
-enumerate pci bus
 mount the rest of the filesystem
 init system loads remaining configuration
 init system starts other core services

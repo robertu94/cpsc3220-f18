@@ -1,0 +1,11 @@
+arch/arm64/kernel/vmlinux.lds.S
+arch/x86/kernel/head64.c: 
+	+ x86_64_start_kernel
+		+ x86_64_start_reservations -> calls start_kernel()
+init/main.c:
+	+	start_kernel
+		+ rest_init
+			+	kernel_init
+				+	kernel_init_freeable
+					+	do_basic_setup
+						+	do_initcalls -> does pci initialization
