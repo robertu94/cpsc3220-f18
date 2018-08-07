@@ -9,7 +9,7 @@ mount the root filesystem
 start the init process (pid 1)
 start the idle process (pid 0)
 enumerate pci bus
-mount the root filesystem
+mount the rest of the filesystem
 init system loads remaining configuration
 init system starts other core services
 init system starts terminal services (/bin/login)
