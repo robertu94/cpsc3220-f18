@@ -1,0 +1,11 @@
+shim
+shim_test
+hello_world
+hello_world_cpp
+shim_cpp
+shim_cpp_clang
+shim_test_static
+hello_world_syscall
+hello_world_syscall_asm
+rawsyscall
+rawsyscall.o

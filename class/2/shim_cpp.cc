@@ -1,0 +1,27 @@
+#include <iostream>
+#include <dlfcn.h>
+
+
+extern "C" {
+
+static int (*orig_rand)(void) = nullptr;
+
+void  __attribute__((constructor)) init (void)
+{
+	//when compiled with g++ the below line segfaults
+	//std::cerr << "loading" << std::endl;
+	orig_rand = reinterpret_cast<int(*)(void)>(dlsym(RTLD_NEXT, "rand"));
+}
+
+void  __attribute__((destructor)) cleanup (void)
+{
+	std::cerr << "done" << std::endl;
+}
+
+int rand(void)
+{
+	std::cerr << "muhaha" << std::endl;
+	return 13;
+	//return (orig_rand()%20)+1;
+}
+}
