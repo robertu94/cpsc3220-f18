@@ -1,0 +1,11 @@
+msgpassing_client
+msgpassing_server
+named_pipe_reciever
+named_pipe_sender
+pipes
+shmem_mmap
+shmem_sysv
+signals_reciever
+signals_sender
+sockets_reciever
+sockets_sender
