@@ -9,3 +9,4 @@ hello_world_syscall
 hello_world_syscall_asm
 rawsyscall
 rawsyscall.o
+notes.txt

@@ -10,6 +10,8 @@ void  __attribute__((constructor)) init (void)
 {
 	//when compiled with g++ the below line segfaults
 	//std::cerr << "loading" << std::endl;
+
+	//reinterpet_cast is very the "C++ way" to do C like-cast, but "tries" static casting first
 	orig_rand = reinterpret_cast<int(*)(void)>(dlsym(RTLD_NEXT, "rand"));
 }
 

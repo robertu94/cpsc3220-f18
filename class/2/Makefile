@@ -10,13 +10,17 @@ clean:
 	$(RM) $(ALL) $(wildcard *.o)
 
 shim_test_static: CFLAGS=-static
+
 shim: LDFLAGS=-ldl -shared
 shim: CFLAGS=-fPIC
+
 shim_cpp: LDFLAGS=-ldl -shared
 shim_cpp: CXXFLAGS=-fPIC
+
 shim_cpp_clang: LDFLAGS=-ldl -shared
 shim_cpp_clang: CXXFLAGS=-fPIC -stdlib=libc++
 shim_cpp_clang: CXX=clang++
+
 rawsyscall.o: rawsyscall.s
 	$(CC) -c $^
 rawsyscall: rawsyscall.o

@@ -7,6 +7,7 @@ static int (*orig_rand)(void) = NULL;
 void  __attribute__((constructor)) init (void)
 {
 	fprintf(stderr,"loading\n");
+	//get a pointer to glib's rand function
 	orig_rand = dlsym(RTLD_NEXT, "rand");
 }
 

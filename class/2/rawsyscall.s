@@ -1,3 +1,5 @@
+//Taken from Dr. Sorber's OS class
+//this example shows how to do a syscall on x86_64 assembly
         .global _start
 
         .text
