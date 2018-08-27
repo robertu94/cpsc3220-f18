@@ -1,0 +1,7 @@
+a_syscall_to_die_for
+child
+for_a_few_syscalls_more
+for_a_fist_full_of_syscalls
+fork_bomb
+hello_worlds
+ptrace_example
