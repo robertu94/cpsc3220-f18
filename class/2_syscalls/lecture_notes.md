@@ -374,8 +374,8 @@ we would get the version of `rand` from `shim` rather than the one from
 ```
 loading
 muhaha!
-cleanup
 13
+cleanup
 ```
 
 We then talked about how to call the `rand` from glibc by using the `dlsym`
