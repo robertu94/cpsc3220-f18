@@ -1,0 +1,2 @@
+fs/exec.c execve
+arch/x86/entry/syscalls/syscall_64.tbl table of system calls for your reference.  Please don't memorize this whole list.
