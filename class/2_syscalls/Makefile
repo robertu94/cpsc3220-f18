@@ -1,4 +1,4 @@
-ALL= hello_world hello_world_cpp shim_test shim shim_cpp shim_cpp_clang shim_test_static hello_world_syscall hello_world_syscall_asm rawsyscall
+ALL= hello_world hello_world_cpp shim_test shim shim_cpp shim_test_static hello_world_syscall hello_world_syscall_asm rawsyscall #shim_cpp_clang 
 CFLAGS+=-O3 -Wall -Werror -Wextra
 CXXFLAGS+=$(CFLAGS) -std=c++11 -fno-exceptions -fno-rtti
 
@@ -17,9 +17,10 @@ shim: CFLAGS+=-fPIC
 shim_cpp: LDFLAGS+=-ldl -shared
 shim_cpp: CXXFLAGS+=-fPIC
 
-shim_cpp_clang: LDFLAGS+=-ldl -shared
-shim_cpp_clang: CXXFLAGS+=-fPIC -stdlib=libc++
-shim_cpp_clang: CXX=clang++
+# Requires newer clang than provided by the lab machines
+# shim_cpp_clang: LDFLAGS+=-ldl -shared
+# shim_cpp_clang: CXXFLAGS+=-fPIC -stdlib=libc++
+# shim_cpp_clang: CXX=clang++
 
 rawsyscall.o: rawsyscall.s
 	$(CC) -c $^
