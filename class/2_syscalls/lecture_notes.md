@@ -7,7 +7,7 @@ intended.  Generally speaking, classes are organized around a series of
 detailed examples. This class is no exception.  For those who asked for a
 PowerPoint or slides.  You can think of the source code files as our slides.
 
-#hello_world
+# hello_world
 
 The purpose of this file was to look at the concept of a system call.  A
 system call is the interface between user programs and the kernel.  Library
@@ -169,7 +169,7 @@ man 2 execve
 Section 2 of the manual has information on system calls.
 
 
-#hello_world_cpp
+# hello_world_cpp
 
 We talked about what hello world looks like in c++
 
@@ -269,14 +269,14 @@ exit_group(0)                           = ?
 The key difference boiling down to some additional share libraries being
 loaded.
 
-#hello_world_syscall
+# hello_world_syscall
 
 Next we looked at the glibc wrapper for the write syscall, the interface that
 things like `printf` are implemented in terms of.  We talked about how glibc's
 write function is just a thin wrapper around some assembly that we would look
 at next.
 
-#hello_world_syscall_asm
+# hello_world_syscall_asm
 
 After that, we looked at the syntax that actual GCC uses to implement write.
 
@@ -327,7 +327,7 @@ from high performance computing called infiniband which you will NOT be tested
 on.  Infiniband does kernel bypass networking.
 
 
-#rawsyscall
+# rawsyscall
 
 In this file we looked at the more accessible way to call system calls.
 
@@ -349,14 +349,14 @@ be helpful on the first project.
 
 We wrapped up this section with a bunch of questions.
 
-#shim_test
+# shim_test
 
 We then went on to look at shims and dynamic loading which will be a key part
 of project 1.  Shim test is a file that just prints a random value by calling
 `rand`.  I mentioned that rand returns an integer between 0 and RAND\_MAX.  I
 mentioned that `rand` is provided by dynamic linking with glibc.
 
-#shim
+# shim
 
 We looked at the shim, and I pointed out 3 things:
 
@@ -385,7 +385,7 @@ extension to POSIX dlsym, you have to define `_GNU_SOURCE` for `RTLD_NEXT` to
 be defined.
 
 
-#shim_cpp
+# shim_cpp
 
 I mentioned a few pitfalls of using C++ in this class.  Since you may complete the
 projects and classwork in either, you may skip this section if you intend to
@@ -402,14 +402,14 @@ use C.
 		disable them for this class with the `-fno-exceptions -fno-rtti` flags to
 		the compiler for this class.
 
-#shim_cpp_clang
+# shim_cpp_clang
 
 We also briefly discussed that clang and libc++ has an implementation of that
 fixes the segfault issue. That works by calling its init methods before
 `__attribute__((constructor))`s get called.  Unfortunately, after class I
 discovered that these are not installed on the lab machines.
 
-#shim_test_static
+# shim_test_static
 
 Finally we talked briefly about static linking and how it provides the
 function definitions in the binary.  This makes the binary larger, and
