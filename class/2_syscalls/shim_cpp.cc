@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <iostream>
 #include <dlfcn.h>
 
@@ -10,9 +11,13 @@ void  __attribute__((constructor)) init (void)
 {
 	//when compiled with g++ the below line segfaults
 	//std::cerr << "loading" << std::endl;
+	fprintf(stdout, "loading\n");
 
 	//reinterpet_cast is very the "C++ way" to do C like-cast, but "tries" static casting first
-	orig_rand = reinterpret_cast<int(*)(void)>(dlsym(RTLD_NEXT, "rand"));
+	if(orig_rand == nullptr)
+	{
+		orig_rand = reinterpret_cast<int(*)(void)>(dlsym(RTLD_NEXT, "rand"));
+	}
 }
 
 void  __attribute__((destructor)) cleanup (void)
