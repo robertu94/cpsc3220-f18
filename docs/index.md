@@ -163,7 +163,7 @@ In the event you don't get a response by 1pm:  You should try the following, in 
 I will give short "pop quizzes" at the beginning of every class that will be used in part to take attendance.
 These quizzes may require you to enter information distributed during classes to ensure that you attend in person.
 If you miss a quiz, your grade will be a zero.
-I will drop the lowest 3 quizzes.
+I will drop the lowest 4 quizzes.
 
 ## Exams
 
