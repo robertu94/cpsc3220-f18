@@ -1,4 +1,4 @@
-ALL= hello_world hello_world_cpp shim_test shim shim_cpp shim_test_static hello_world_syscall hello_world_syscall_asm rawsyscall #shim_cpp_clang 
+ALL= hello_world hello_world_cpp shim_test shim.so shim_cpp.so shim_test_static hello_world_syscall hello_world_syscall_asm rawsyscall #shim_cpp_clang 
 CFLAGS+=-O3 -Wall -Werror -Wextra
 CXXFLAGS+=$(CFLAGS) -std=c++11 -fno-exceptions -fno-rtti
 
@@ -11,11 +11,12 @@ clean:
 
 shim_test_static: CFLAGS+=-static
 
-shim: LDFLAGS+=-ldl -shared
-shim: CFLAGS+=-fPIC
+shim.so: shim.c
+	$(CC) $(CFLAGS) -fPIC -shared -o $@ $< -ldl
 
-shim_cpp: LDFLAGS+=-ldl -shared
-shim_cpp: CXXFLAGS+=-fPIC
+shim_cpp.so: shim_cpp.cc
+	$(CXX) $(CXXFLAGS) -fPIC -shared -o $@ $< -ldl
+
 
 # Requires newer clang than provided by the lab machines
 # shim_cpp_clang: LDFLAGS+=-ldl -shared

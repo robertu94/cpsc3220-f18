@@ -6,19 +6,22 @@ static int (*orig_rand)(void) = NULL;
 
 void  __attribute__((constructor)) init (void)
 {
-	fprintf(stderr,"loading\n");
+	printf("loading\n");
 	//get a pointer to glib's rand function
-	orig_rand = dlsym(RTLD_NEXT, "rand");
+	if(orig_rand==NULL)
+	{
+		orig_rand = dlsym(RTLD_NEXT, "rand");
+	}
 }
 
 void  __attribute__((destructor)) cleanup (void)
 {
-	fprintf(stderr,"cleanup\n");
+	printf("cleanup\n");
 }
 
 int rand(void)
 {
-	fprintf(stderr,"muhaha!\n");
+	printf("muhaha!\n");
 	return 13;
 	//return (orig_rand()%20)+1;
 }
