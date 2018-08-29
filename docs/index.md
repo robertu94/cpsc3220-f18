@@ -11,6 +11,8 @@ University Telephone: N/A
 
 Instructor: Robert Underwood, <robertu@g.clemson.edu>
 
+TA: Zheng Miao, <zmiao@g.clemson.edu>
+
 Office: 221 McAdams
 
 Office Hours: 
