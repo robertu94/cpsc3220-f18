@@ -4,3 +4,6 @@ CXXFLAGS+=-std=c++11
 all: $(ALL)
 clean:
 	$(RM) $(ALL)
+docker:
+	sudo docker build -t fork_bomb .
+	sudo docker run -m 1g fork_bomb

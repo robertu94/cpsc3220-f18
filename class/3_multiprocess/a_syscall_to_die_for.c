@@ -18,6 +18,8 @@ void parent(pid_t child_pid)
 	printf("child restarted %d\n", child_pid);
 	sleep(3);
 	kill(child_pid, SIGTERM);
+	printf("child terminated %d\n", child_pid);
+	kill(child_pid, SIGKILL);
 	printf("child killed %d\n", child_pid);
 	waitpid(child_pid, &status, 0);
 	printf("parent done\n");
@@ -27,6 +29,9 @@ void parent(pid_t child_pid)
 void child()
 {
 	pid_t child_pid  = getpid();
+	signal(SIGTERM, SIG_IGN);
+	signal(SIGKILL, SIG_IGN);
+	perror("sigkill");
 	printf("child started %d\n", child_pid);
 	for (int i = 0; i < 10; ++i) {
 		sleep(1);

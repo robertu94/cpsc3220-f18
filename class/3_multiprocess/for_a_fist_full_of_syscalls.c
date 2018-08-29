@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+
+int global = 3;
 void parent(pid_t child_pid)
 {
 	pid_t parent_pid  = getpid();
@@ -38,7 +40,9 @@ int main(int argc, char *argv[])
 			perror("failed to fork\n");
 			exit(1);
 		default:
+			global = 4;
 			parent(pid);
 	}
+	printf("%d\n", global);
 	return 0;
 }
