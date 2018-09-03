@@ -1,4 +1,3 @@
-//this file comes from Dr. Sorber's OS class
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>

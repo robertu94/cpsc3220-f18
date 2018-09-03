@@ -5,7 +5,8 @@ LDFLAGS=-pthread
 
 
 BINS=pthreadex sequential pthreadex2 sequential2 \
-		 hello_world_lite_cpp hello_world_wrong std_async_async std_async_defered
+		 hello_world_lite_cpp hello_world_wrong std_async_async std_async_defered \
+		 std_async_except
 all: $(BINS)
 echo:
 	@echo $(BINS)
