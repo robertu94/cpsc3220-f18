@@ -5,7 +5,8 @@ LDFLAGS=-pthread
 
 
 BINS= conditionex readwritelockex sem \
-			hello_world_atomics reader_writer condition_variable
+			hello_world_atomics reader_writer condition_variable \
+			semephore
 .PHONY: all bins
 all: $(BINS) bins
 bins:

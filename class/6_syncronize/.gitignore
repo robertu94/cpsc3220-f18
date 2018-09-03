@@ -4,3 +4,5 @@ sem
 hello_world_atomics
 reader_writer
 condition_variable
+semephore
+notes.txt
