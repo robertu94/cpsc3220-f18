@@ -1,0 +1,8 @@
+mystery -- an overview of deadlocks
+philosophers -- an introduction to the dining philosophers problem
+philosophers_lock_order -- a solution to dining philosophers that works in any language
+philosophers_cpp -- a solution to dining philosophers using only standard c++, lock contention
+
+producer/consumer -- see ../6_syncronize/condition_variable.cc 
+thread pool-style client/server -- see ../6_syncronize/semephore.cc
+
