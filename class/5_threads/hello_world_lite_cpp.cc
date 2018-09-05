@@ -6,8 +6,9 @@ const long int BIG = 100000000L;
 unsigned long counter = 0;
 std::mutex lock;
 
-void count_to_big()
+void count_to_big(int id)
 {
+	std::cout << id << std::endl;
 	for (long int i = 0; i < BIG; ++i) {
 		std::lock_guard<std::mutex> guard(lock);
 		counter++;
@@ -16,8 +17,8 @@ void count_to_big()
 
 int main(int argc, char *argv[])
 {
-	std::thread t1(count_to_big);
-	std::thread t2(count_to_big);
+	std::thread t1(count_to_big, 0);
+	std::thread t2(count_to_big, 1);
 
 	t1.join();
 	t2.join();
