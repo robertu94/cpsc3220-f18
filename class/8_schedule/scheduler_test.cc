@@ -8,11 +8,30 @@
 #include <random>
 #include <stdexcept>
 #include <vector>
+#include <set>
+#include <string>
+#include <cstdlib>
+#include <memory>
+#include <sstream>
+
+#include "getopt.h"
 
 #include "FIFO.h"
 #include "RR.h"
 #include "SJF.h"
 #include "STCF.h"
+
+
+std::vector<std::string> split(std::string const& text, const char delim)
+{
+	std::vector<std::string> splits;
+	std::istringstream ss(text);
+	std::string item;
+	while(std::getline(ss, item, delim)) {
+			splits.emplace_back(item);
+	}
+	return splits;
+}
 
 std::vector<Task>
 make_tasks(const int num_tasks)
@@ -38,13 +57,31 @@ make_tasks(const int num_tasks)
 }
 
 std::vector<std::unique_ptr<Scheduler>>
-make_schedulers()
+make_schedulers(int quanta, std::set<std::string> const& tests)
 {
   std::vector<std::unique_ptr<Scheduler>> schedulers;
-  schedulers.emplace_back(std::make_unique<FIFOScheduler>());
-  schedulers.emplace_back(std::make_unique<SJFScheduler>());
-  schedulers.emplace_back(std::make_unique<STCFScheduler>(3));
-  schedulers.emplace_back(std::make_unique<RRScheduler>(3));
+	if(tests.empty())
+	{
+		schedulers.emplace_back(std::make_unique<FIFOScheduler>());
+		schedulers.emplace_back(std::make_unique<SJFScheduler>());
+		schedulers.emplace_back(std::make_unique<STCFScheduler>(quanta));
+		schedulers.emplace_back(std::make_unique<RRScheduler>(quanta));
+	} else {
+		for(auto const& test: tests)
+		{
+			using namespace std::string_literals;
+		if(test == "FIFO")
+			schedulers.emplace_back(std::make_unique<FIFOScheduler>());
+		else if(test == "SJF")
+			schedulers.emplace_back(std::make_unique<SJFScheduler>());
+		else if(test == "STCF")
+			schedulers.emplace_back(std::make_unique<STCFScheduler>(quanta));
+		else if(test == "RR")
+			schedulers.emplace_back(std::make_unique<RRScheduler>(quanta));
+			else
+			throw std::runtime_error("the requested scheduler does not exist "s + test);
+		}
+	}
   return schedulers;
 }
 
@@ -152,14 +189,40 @@ output_task_summary(std::vector<Task> const& tasks)
   }
 }
 
+void usage() {
+	std::cerr << "./scheduler_test [-n NUM_TASKS] [-q QUANTA]"  << std::endl;
+}
+
 int
 main(int argc, char* argv[])
 {
-  if (argc != 2)
-    throw std::runtime_error("insufficient arguments");
+  int opt;
+	int quanta = 3;
+	int num_tasks = 5;
+	std::set<std::string> tests;
+  while((opt = getopt(argc, argv, "n:q:s:")) != -1)
+  {
+		switch(opt)
+		{
+			case 'q':
+				quanta = atoi(optarg);
+				break;
+			case 'n':
+				num_tasks = atoi(optarg);
+				break;
+			case 's':
+				{
+					auto test_names = split(optarg,',');
+					std::for_each(std::begin(test_names), std::end(test_names),
+							[&tests](std::string const& test) {tests.emplace(test);});
+				}
+				break;
+			default: usage(); exit(EXIT_FAILURE); 
+		} 
+	}
 
-  const auto tasks = make_tasks(atoi(argv[1]));
-  auto schedulers = make_schedulers();
+  const auto tasks = make_tasks(num_tasks);
+  auto schedulers = make_schedulers(quanta, tests);
 
   output_task_summary(tasks);
   for (auto const& scheduler : schedulers) {
