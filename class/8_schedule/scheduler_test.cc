@@ -20,6 +20,7 @@
 #include "RR.h"
 #include "SJF.h"
 #include "STCF.h"
+#include "Lottery.h"
 
 
 std::vector<std::string> split(std::string const& text, const char delim)
@@ -66,6 +67,7 @@ make_schedulers(int quanta, std::set<std::string> const& tests)
 		schedulers.emplace_back(std::make_unique<SJFScheduler>());
 		schedulers.emplace_back(std::make_unique<STCFScheduler>(quanta));
 		schedulers.emplace_back(std::make_unique<RRScheduler>(quanta));
+		schedulers.emplace_back(std::make_unique<LotteryScheduler>());
 	} else {
 		for(auto const& test: tests)
 		{
@@ -78,6 +80,8 @@ make_schedulers(int quanta, std::set<std::string> const& tests)
 			schedulers.emplace_back(std::make_unique<STCFScheduler>(quanta));
 		else if(test == "RR")
 			schedulers.emplace_back(std::make_unique<RRScheduler>(quanta));
+		else if(test == "Lottery")
+			schedulers.emplace_back(std::make_unique<LotteryScheduler>());
 			else
 			throw std::runtime_error("the requested scheduler does not exist "s + test);
 		}
@@ -108,7 +112,7 @@ output_service_and_waiting_times(std::vector<Task> const& tasks,
     id_to_response_time.emplace(
       event.task_id, event.current_time - id_to_arrival_time[event.task_id]);
 
-		if(id_to_waiting_time.find(event.task_id) != id_to_waiting_time.end())
+		if(id_to_waiting_time.find(event.task_id) == id_to_waiting_time.end())
 		{
 			id_to_waiting_time[event.task_id] = event.current_time  - id_to_arrival_time[event.task_id];
 		} else {
@@ -121,7 +125,7 @@ output_service_and_waiting_times(std::vector<Task> const& tasks,
   }
 
   for (auto const& task : tasks) {
-    id_to_service_time[task.id] = id_to_last_ran[task.id] - id_to_waiting_time[task.id];
+    id_to_service_time[task.id] = id_to_last_ran[task.id] - id_to_arrival_time[task.id];
   }
 
   const int field_width = 12;
@@ -175,16 +179,10 @@ output_service_and_waiting_times(std::vector<Task> const& tasks,
 void
 output_task_summary(std::vector<Task> const& tasks)
 {
-  auto ordered = tasks;
-  auto sort_by_arrivals = [](auto const& left, auto const& right) {
-    return left.arrival_time < right.arrival_time;
-  };
-
-  std::stable_sort(std::begin(ordered), std::end(ordered), sort_by_arrivals);
   std::cout << std::setfill('=') << std::left << "TASKS" << std::setfill(' ')
             << std::right << std::endl;
   output_task_summary_header(std::cout);
-  for (auto const& task : ordered) {
+  for (auto const& task : tasks) {
     std::cout << task << std::endl;
   }
 }

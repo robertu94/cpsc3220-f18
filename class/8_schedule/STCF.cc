@@ -14,7 +14,7 @@ STCFScheduler::schedule(std::vector<Task> const& tasks) const
 
   while (!active.empty() || !pending.empty()) {
     auto now_active = [current_time](auto& task) {
-      return task.arrival_time < current_time;
+      return task.arrival_time <= current_time;
     };
     // move tasks that are now active to the active queue from the pending queue
     std::copy_if(std::begin(pending), std::end(pending),

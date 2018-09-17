@@ -1,6 +1,6 @@
 CXX=clang++
 CXXFLAGS=-std=c++14 -Wall -Werror -Wextra -g -Iinclude
-OBJS = scheduler_test.o Scheduler.o SJF.o FIFO.o STCF.o RR.o
+OBJS = scheduler_test.o Scheduler.o SJF.o FIFO.o STCF.o RR.o Lottery.o
 
 
 .PHONY: clean
