@@ -22,7 +22,7 @@ operator<<(std::ostream& out, Task const& task)
 
   return out << std::setw(16) << task.id << std::setw(16) << task.duration
              << std::setw(16) << task.arrival_time << std::setw(16)
-             << (int)((task.deadline == std::numeric_limits<std::size_t>::max())?task.deadline:-1);
+             << (int)((task.deadline != std::numeric_limits<std::size_t>::max())?task.deadline:-1);
 };
 
 void

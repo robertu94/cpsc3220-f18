@@ -21,6 +21,7 @@
 #include "SJF.h"
 #include "STCF.h"
 #include "Lottery.h"
+#include "EDF.h"
 
 
 std::vector<std::string> split(std::string const& text, const char delim)
@@ -35,24 +36,40 @@ std::vector<std::string> split(std::string const& text, const char delim)
 }
 
 std::vector<Task>
-make_tasks(const int num_tasks)
+make_tasks(const int num_tasks, bool use_deadlines, bool one_slow_task)
 {
   std::vector<Task> tasks(num_tasks);
   std::seed_seq seed;
   std::mt19937 gen(seed);
   std::uniform_int_distribution<int> duration_dist(1, 10);
   std::poisson_distribution<int> arrival_dist(5);
+  std::poisson_distribution<int> deadline_dist(12);
 
   unsigned int id = 0;
   std::generate(std::begin(tasks), std::end(tasks),
-                [&id, &gen, &duration_dist, &arrival_dist]() {
+                [=, &id, &gen, &duration_dist, &arrival_dist, &deadline_dist]() {
                   Task task;
                   task.duration = duration_dist(gen);
                   task.id = id++;
                   task.arrival_time = arrival_dist(gen);
-                  task.deadline = std::numeric_limits<std::size_t>::max();
+									if(use_deadlines)
+									{ task.deadline = task.arrival_time + task.duration + deadline_dist(gen);
+									} else {
+										task.deadline = std::numeric_limits<std::size_t>::max();
+									}
                   return task;
                 });
+
+	if(one_slow_task)
+	{
+		Task task;
+		task.id = id;
+		task.deadline = std::numeric_limits<std::size_t>::max();
+		task.duration = 30;
+		task.arrival_time = 0;
+		tasks.emplace_back(std::move(task));
+
+	}
 
   return tasks;
 }
@@ -68,6 +85,7 @@ make_schedulers(int quanta, std::set<std::string> const& tests)
 		schedulers.emplace_back(std::make_unique<STCFScheduler>(quanta));
 		schedulers.emplace_back(std::make_unique<RRScheduler>(quanta));
 		schedulers.emplace_back(std::make_unique<LotteryScheduler>());
+		schedulers.emplace_back(std::make_unique<EDFScheduler>(quanta));
 	} else {
 		for(auto const& test: tests)
 		{
@@ -82,6 +100,8 @@ make_schedulers(int quanta, std::set<std::string> const& tests)
 			schedulers.emplace_back(std::make_unique<RRScheduler>(quanta));
 		else if(test == "Lottery")
 			schedulers.emplace_back(std::make_unique<LotteryScheduler>());
+		else if(test == "EDF")
+			schedulers.emplace_back(std::make_unique<EDFScheduler>(quanta));
 			else
 			throw std::runtime_error("the requested scheduler does not exist "s + test);
 		}
@@ -188,7 +208,7 @@ output_task_summary(std::vector<Task> const& tasks)
 }
 
 void usage() {
-	std::cerr << "./scheduler_test [-n NUM_TASKS] [-q QUANTA]"  << std::endl;
+	std::cerr << "./scheduler_test [-h] [-x] [-n NUM_TASKS] [-q QUANTA] [-s [FIFO][SJF][STCF][RR][Lottery]]"  << std::endl;
 }
 
 int
@@ -197,16 +217,25 @@ main(int argc, char* argv[])
   int opt;
 	int quanta = 3;
 	int num_tasks = 5;
+	bool use_deadlines = false;
+	bool one_slow_task = false;
 	std::set<std::string> tests;
-  while((opt = getopt(argc, argv, "n:q:s:")) != -1)
+  while((opt = getopt(argc, argv, "dxhn:q:s:")) != -1)
   {
 		switch(opt)
 		{
-			case 'q':
-				quanta = atoi(optarg);
+			case 'd':
+				use_deadlines = true;
+				break;
+			case 'h':
+				usage();
+				exit(EXIT_SUCCESS);
 				break;
 			case 'n':
 				num_tasks = atoi(optarg);
+				break;
+			case 'q':
+				quanta = atoi(optarg);
 				break;
 			case 's':
 				{
@@ -215,11 +244,14 @@ main(int argc, char* argv[])
 							[&tests](std::string const& test) {tests.emplace(test);});
 				}
 				break;
+			case 'x':
+				one_slow_task = true;
+				break;
 			default: usage(); exit(EXIT_FAILURE); 
 		} 
 	}
 
-  const auto tasks = make_tasks(num_tasks);
+  const auto tasks = make_tasks(num_tasks, use_deadlines, one_slow_task);
   auto schedulers = make_schedulers(quanta, tests);
 
   output_task_summary(tasks);
