@@ -36,11 +36,11 @@ std::vector<std::string> split(std::string const& text, const char delim)
 }
 
 std::vector<Task>
-make_tasks(const int num_tasks, bool use_deadlines, bool one_slow_task)
+make_tasks(const int num_tasks, bool use_deadlines, bool one_slow_task, int task_seed)
 {
   std::vector<Task> tasks(num_tasks);
-  std::seed_seq seed;
-  std::mt19937 gen(seed);
+  std::seed_seq seed{task_seed};
+  std::mt19937 gen(task_seed);
   std::uniform_int_distribution<int> duration_dist(1, 10);
   std::poisson_distribution<int> arrival_dist(5);
   std::poisson_distribution<int> deadline_dist(12);
@@ -217,15 +217,19 @@ main(int argc, char* argv[])
   int opt;
 	int quanta = 3;
 	int num_tasks = 5;
+	int task_seed = 0;
 	bool use_deadlines = false;
 	bool one_slow_task = false;
 	std::set<std::string> tests;
-  while((opt = getopt(argc, argv, "dxhn:q:s:")) != -1)
+  while((opt = getopt(argc, argv, "dxhn:q:s:i:")) != -1)
   {
 		switch(opt)
 		{
 			case 'd':
 				use_deadlines = true;
+				break;
+			case 'i':
+				task_seed = atoi(optarg);
 				break;
 			case 'h':
 				usage();
@@ -251,7 +255,7 @@ main(int argc, char* argv[])
 		} 
 	}
 
-  const auto tasks = make_tasks(num_tasks, use_deadlines, one_slow_task);
+  const auto tasks = make_tasks(num_tasks, use_deadlines, one_slow_task, task_seed);
   auto schedulers = make_schedulers(quanta, tests);
 
   output_task_summary(tasks);
