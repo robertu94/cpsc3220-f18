@@ -6,6 +6,7 @@ pthreadex2
 sequential2
 hello_world_lite_cpp
 hello_world_wrong
+hello_world_coarse
 std_async_async
 std_async_defered
 std_async_except

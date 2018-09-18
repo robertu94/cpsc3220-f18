@@ -42,7 +42,7 @@ void dine(int philosopher_id)
 			std::cout << "Philosopher " << philosopher_id << " dining after waiting " << wait_time.count()  << " seconds" <<  std::endl;
 		}
 
-		std::this_thread::sleep_for(std::chrono::seconds(dist(gen)));
+		std::this_thread::sleep_for(std::chrono::milliseconds(dist(gen)));
 
 }
 
