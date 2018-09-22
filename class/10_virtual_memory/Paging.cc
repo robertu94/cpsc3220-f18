@@ -1,0 +1,31 @@
+#include "Paging.h"
+#include <stdexcept>
+#include <fstream>
+#include <sstream>
+
+std::uint64_t Paging::to_physical(std::uint64_t ptr)
+{
+
+	uint64_t page_id = getBits(ptr, options.virtual_bits, options.virtual_bits - options.page_bits);
+	uint64_t offset = getBits(ptr, options.offset_bits, 0);
+
+	auto& page = page_table[page_id];
+	if(offset > options.page_size) throw std::runtime_error("invalid address");
+
+	return page.base_address | offset;
+}
+std::vector<Paging::PageTableEntry> Paging::load_page_table_file(const char* file_name)
+{
+	std::vector<Paging::PageTableEntry> entries;
+	std::ifstream infile(file_name);
+
+	for(std::string line; std::getline(infile, line); )
+	{
+		PageTableEntry pte;
+		std::stringstream ss{line};
+		ss >> pte.base_address;
+		entries.emplace_back(std::move(pte));
+	}
+
+	return entries;
+}

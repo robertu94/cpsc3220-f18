@@ -1,0 +1,1 @@
+This program use cmake to build itself.  You may wish to use cmake instead of make for the projects.  If you do make an entry in the makefile to chain call cmake.
