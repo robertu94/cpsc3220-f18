@@ -4,8 +4,10 @@ project(virtual_memory VERSION 1.0 LANGUAGES CXX)
 add_executable(virtual_memory_test
 	CommandLineOptions.cc 
 	Paging.cc 
+	MultiLevelPaging.cc
 	Segmentation.cc 
 	VirtualMemory.cc 
+	StatusBits.cc
 	virtual_memory_test.cc
 	)
 

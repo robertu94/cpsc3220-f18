@@ -9,17 +9,20 @@
 
 #include "Paging.h"
 #include "Segmentation.h"
+#include "MultiLevelPaging.h"
 
 namespace {
 enum class ProgramMode
 {
   Segmentation,
-  Paging
+  Paging,
+	MultiLevelPaging
 };
 
 std::map<std::string, ProgramMode> str_to_mode{
   { "SEG", ProgramMode::Segmentation },
   { "PAGE", ProgramMode::Paging },
+  { "2PAGE", ProgramMode::MultiLevelPaging },
 };
 
 void
@@ -80,6 +83,9 @@ ParseOptions(int argc, char* argv[])
       case ProgramMode::Paging:
         cl_options.vmem = std::make_unique<Paging>(vm_options);
         break;
+			case ProgramMode::MultiLevelPaging:
+				cl_options.vmem = std::make_unique<MultiLevelPaging>(vm_options);
+				break;
     }
 
   } catch (std::out_of_range& ex) {
