@@ -22,21 +22,19 @@ RRScheduler::schedule(std::vector<Task> const& tasks) const
       std::remove_if(std::begin(pending), std::end(pending), now_active),
       std::end(pending));
 
-
-
     if (!active.empty()) {
       Task& current = active.front();
-			auto run_for =std::min(quanta, current.duration);
+      auto run_for = std::min(quanta, current.duration);
       events.emplace_back(current.id, run_for, current_time);
       current_time += run_for;
       current.duration -= run_for;
 
       if (current.duration <= 0) {
         active.pop_front();
+      } else {
+        std::rotate(std::begin(active), std::next(std::begin(active)),
+                    std::end(active));
       }
-
-      std::rotate(std::begin(active), std::next(std::begin(active)),
-                  std::end(active));
     } else {
       current_time += 1;
     }
