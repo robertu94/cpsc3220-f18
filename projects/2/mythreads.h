@@ -1,5 +1,9 @@
+#ifdef __cplusplus
+extern "C" {
+#endif 
 
 #include <ucontext.h>
+
 
 #define STACK_SIZE (16*1024)  
 #define NUM_LOCKS 10 
@@ -23,3 +27,6 @@ extern void threadSignal(int lockNum, int conditionNum);
 
 //this 
 extern int interruptsAreDisabled;
+#ifdef __cplusplus
+}
+#endif 
