@@ -14,11 +14,12 @@ usage()
 {
   std::cerr << "./Swap" << std::endl;
 }
+using namespace std::string_literals;
 
 std::map<std::string, SwapAlg> algs{
-  { "opt", SwapAlg::OPT },
-  { "lru", SwapAlg::LRU },
-  { "fifo", SwapAlg::FIFO },
+  { "opt"s, SwapAlg::OPT },
+  { "lru"s, SwapAlg::LRU },
+  { "fifo"s, SwapAlg::FIFO },
 };
 
 SwapAlg
