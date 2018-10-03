@@ -1,4 +1,5 @@
 #include <iosfwd>
+#include <vector>
 
 #include "Commandline.h"
 
