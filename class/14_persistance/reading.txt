@@ -1,8 +1,20 @@
+Speeds:
+
++ registers .25-.5 ns
++ cache .5-25 ns
++ main memory 80-250 ns
++	Infiniband 500-5000 ns
++ SSD 25,000-50,000ns
++ HDD ~5,000,000ns
++ Ethernet >30,000,000ns
+
+repo: https://github.com/llvm-mirror/llvm
+
 llvm/include/llvm/ADT/SmallVector.h -- small size vector optimization
-	- SmallVectorTemplateCommon -- U FirstEl
+	- SmallVectorTemplateCommon -- stores the first element
 	- SmallVectorStorage -- stores the rest of the N-1 elements
-	- SmallVectorBase -- first, end, capacity
-	- SmallVectorTemplateBase -- better grow routines (based on POD)
+	- SmallVectorBase -- first, end, and capacity pointers
+	- SmallVectorTemplateBase -- better grow routines (based on whether its a POD type)
 	- SmallVectorImpl -- defines most method that don't depend on size
 	- SmallVector -- user class
 
