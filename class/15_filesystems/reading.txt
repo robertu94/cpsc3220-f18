@@ -1,0 +1,49 @@
+# Read/Write File Contents
+{p,}read{,v,v2}
+{p,}write{,v,v2}
+m{,un}map
+{,f}trnancate
+aio_{read,write,fsync,error,return,suspend,cancel,listio}
+tee
+splice
+
+# Manipulate File Behavior
+mprotect
+dup{,2,3}
+fcntl
+flock
+{f,}sync
+fdatasync
+lseek
+
+# Metadata
+stat{,at,x}
+{l,f}{set,get,list}xattr
+
+# Security/Permissions
+access
+{,f,l}chown
+{get,set}{,e,u,res}{u,g}id
+chroot
+
+# Directories
+getdents
+mkdir{at,}
+chdir
+rename
+getcwd
+mknod
+creat
+link
+unlink
+rmdir
+symlink{at,}
+readlink{at,}
+
+# General
+open{at,}
+close
+
+poll
+select
+inotify_{init,add_watch,rm_watch}

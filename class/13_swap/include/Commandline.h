@@ -17,6 +17,7 @@ struct Options
   unsigned int memory_size = 3;
   double duration = 10.0;
   int seed = 0;
+	bool quiet = false;
   std::set<SwapAlg> algs;
 };
 

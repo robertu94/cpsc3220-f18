@@ -40,7 +40,7 @@ parse_args(int argc, char* argv[])
   Options options;
   int opt;
 
-  while ((opt = getopt(argc, argv, "r:s:t:m:i:")) != -1) {
+  while ((opt = getopt(argc, argv, "qr:s:t:m:i:")) != -1) {
     switch (opt) {
       case 'i':
         options.seed = std::atoi(optarg);
@@ -57,6 +57,9 @@ parse_args(int argc, char* argv[])
       case 't':
         options.duration = std::stoul(optarg);
         break;
+			case 'q':
+				options.quiet = true;
+				break;
       default:
         usage();
         exit(EXIT_FAILURE);

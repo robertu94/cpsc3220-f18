@@ -1,0 +1,16 @@
+llvm/include/llvm/ADT/SmallVector.h -- small size vector optimization
+	- SmallVectorTemplateCommon -- U FirstEl
+	- SmallVectorStorage -- stores the rest of the N-1 elements
+	- SmallVectorBase -- first, end, capacity
+	- SmallVectorTemplateBase -- better grow routines (based on POD)
+	- SmallVectorImpl -- defines most method that don't depend on size
+	- SmallVector -- user class
+
+llvm/include/llvm/ADT/PointerIntPair.h -- pointer int pair
+	- PointerIntPair -- provides value exploits alignment
+	- PointerIntPairInfo::getPointer()
+	- PointerIntPairInfo::getInt()
+
+llvm/include/llvm/ADT/DenseMap.h
+	- DenseMap quadratically probed hash table
+	- SmallDenseMap -- A dense map with a small size optimization

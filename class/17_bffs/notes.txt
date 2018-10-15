@@ -1,0 +1,36 @@
+FFS file system
+
+Block Size: 4096 **bytes**
+Max Blocks:
+Max File Size:
+
+Index Structure:
+	+	Multilevel index (see image)
+	+	inode
+		+	contains metadata (i.e. is directory, access control, access records, etc...)
+		+ 12 direct pointers
+		+	1 indirect pointer (points to a block of indirect pointers)
+		+ 1 double indirect pointer (points to a block of indirect pointers)
+		+ 1 triple indirect pointer (points to a block of double indirect pointers)
+	+ fixed number of inodes in inode array
+	+	sparse file support!
+	+ directory entries contain only the inode numbers (index into inode array)
+	+ key attributes:
+		+	tree structure -- no more fixed directory sizes
+		+ high degree -- reduces seeks
+		+ fixed structure -- easy to implement
+		+ asymmetric load times
+
+Free Space Tracking:
+	+	Bit map tracks space usage
+
+Locality Heuristics:
+	+	"Block Groups"
+	+	Files and Directories are put into same block group
+	+ Data blocks are written first to block group then nearby by block groups until sufficent free space is found.
+	+	Use of a "reserved space" to keep enough free space to keep seek times low
+
+Problems:
+	+ no transactional update
+	+	inter-file fragmentation still a problem
+

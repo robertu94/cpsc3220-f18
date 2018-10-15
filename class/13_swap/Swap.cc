@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iterator>
 #include <iostream>
+#include <map>
 
 #include "SwapScheduler.h"
 #include "LRU.h"
@@ -41,13 +42,23 @@ main(int argc, char* argv[])
             std::ostream_iterator<Request>(std::cout, "\n"));
 
   for (auto i : options.algs) {
+		std::map<SwapEvent::EventType, int> event_counts;
     auto scheduler = make_disk_scheduler(i, options.memory_size);
 		auto events = scheduler->schedule(requests);
 		std::cout << scheduler->name() << std::endl;
+
 		for(auto const& event: events)
 		{
-			std::cout << event << std::endl;
+			if(!options.quiet)
+			{
+				std::cout << event << std::endl;
+			}
+			event_counts[event.type]++;
 		}
+
+		std::cout << "Total Page Outs: " << event_counts[SwapEvent::EventType::PageOut]<< std::endl;
+		std::cout << "Total Page Ins: " << event_counts[SwapEvent::EventType::PageIn]<< std::endl;
+		std::cout << "Total Page References: " << event_counts[SwapEvent::EventType::Reference]<< std::endl;
   }
 
   return 0;

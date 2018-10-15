@@ -1,0 +1,26 @@
+FAT (32) file systems
+
+Max Blocks: 2^28 blocks
+Max File Size: 2^32 -1 bytes
+
+Index Structure:
+	+ 1 block metadata
+	+	2 FAT tables, 8 blocks each
+	+ Root directory after that
+	+	directory can contain upto 16 entries
+	+ entry number corresponds cluster number
+	+	entry in table is address of next FAT entry or 0
+
+Free Space Tracking:
+	+ look for zero entry in FAT
+
+Locality Heuristics:
+	+	Use next fit algorithm where possible
+	+	problem of defragmentation
+
+Problems:
+	+	poor locality on physical disk
+	+	poor random access
+	+	limited (and fixed) metadata
+	+ no support for hard links
+	+ no transactional update
