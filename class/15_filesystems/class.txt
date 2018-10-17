@@ -1,0 +1,49 @@
+user -- 1st digit
+group -- 2nd digit
+others -- 3rd digit
+special -- 4th digit
+
+{
+	- suid
+	- sgid
+	- immutable
+}
+755 suid uid=0, gid=0
+
+read 4    - 100b
+write 2   - 010b
+execute 1 - 001b
+
+
+---
+
+
+execute -- cd into that directory
+read -- list the contents of the directory
+write -- create files in the directory
+suid -- files created in this directory inherit the uid of the directory
+suid -- files created in this directory inherit the gid of the directory
+immutable -- no files can be created or destroyed in this directory
+
+{p,}read{,v,v2}
+pread
+preadv
+preadv2
+read
+readv
+readv2
+
+
+
+
+
+
+
+0700
+chmod 0777 some_file
+
+705 some_file2.txt , uid=340, gid=220
+
+7 -- user can r,w,x
+0 -- group can do nothing
+5 -- other can r,x
