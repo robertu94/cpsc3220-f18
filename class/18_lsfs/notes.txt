@@ -1,0 +1,37 @@
+
+Motivations:
+
++	Most workloads are write-heavy on the disk; reads get cached
++	There is a huge gap between Read and Write performance
++	BFFS et al require many seeks to update metadata
++	Small writes have large overhead
+
+Solution:
+
++	Buffer data, then write a bunch at once to the disk, place inodes after data.
++ Use a "inode map" to quickly index into inodes
++ Use a "checkpoint region" to quickly find the "inode map"
++	Write the "checkpoint region" only seldomly to not impact performance
+
+The recursive update problem:
+
++	how do you avoid updating directories up the tree if you don't write in place?
++ solution: don't write the position on disk, but i-node number the use map.
+	+	i node numbers are conserved on changes
+	+	data positions may change requiring only update to inode map.
+
+The garbage collection problem:
+
++	how do you clean up space to make contagious regions.
+	+	Review each segment, look for low utilization.
+	+	When found, re-write data to another partially used segment to increase
+		utilization
+	+ Add a segment summary block to determine relative liveness of a segment
+	+ Use a version-ing number to determine block liveness
+
+Crash Recovery:
+
++	What happens if a system crashes?
+	+	when writing to the CR? LFS keeps two CR with timestamps at the beginning
+	and end of each CR.  Use the one with two valid timestamps
+	+	when writing to the data region? start at last checkpoint and roll forward.
