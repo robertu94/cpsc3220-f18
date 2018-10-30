@@ -1,0 +1,31 @@
+## Description
+
+raid 0 - span over many disks
+raid 1 - mirroring
+raid 2 - dedicated hamming code parity
+raid 3 - byte level striping dedicated parity
+raid 4 - block level striping dedicated parity
+raid 5 - block level striping distributed parity
+raid 6 - block level steeping double distributed parity
+
+## Disk Usage, Read, Write
+
+raid 0 | N   | R*N     | W*N
+raid 1 | N/2 | R*2     | W
+raid 2 | N-1 | R*(N-1) | W-P
+raid 3 | N-1 | R*(N-1) | W-P
+raid 4 | N-1 | R*(N-1) | W-P
+raid 5 | N-1 | R*(N-1) | W-P
+raid 6 | N-2 | R*(N-2) | W-P
+
+## Max Loss without data loss
+
+raid 0 - 0 drives
+raid 1 - both drives in an mirror
+raid 2 - any one drives
+raid 3 - any one drives
+raid 4 - any one drives
+raid 5 - any one drives
+raid 6 - any two drives
+
+
