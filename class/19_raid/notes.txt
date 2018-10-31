@@ -6,7 +6,7 @@ raid 2 - dedicated hamming code parity
 raid 3 - byte level striping dedicated parity
 raid 4 - block level striping dedicated parity
 raid 5 - block level striping distributed parity
-raid 6 - block level steeping double distributed parity
+raid 6 - block level striping double distributed parity
 
 ## Disk Usage, Read, Write
 
