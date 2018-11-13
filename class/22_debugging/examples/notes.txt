@@ -1,0 +1,5 @@
+test case that detects false sharing
+perf record
+pref annotate
+perf stat -dd ./false1
+perf stat -dd ./false2
