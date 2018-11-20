@@ -1,0 +1,9 @@
+This was a guest lecture by Dr. Amy Apon.
+
+Topics included:
+
+- Parallel vs Distributed Filesystems
+- NFS
+- PVFS/OrangeFS
+- GPFS
+- Luster
