@@ -46,9 +46,9 @@ run_on_device(cl::Context context, cl::Program::Sources sources)
                              /*output event*/ &kernel_event[0]);
   queue.enqueueReadBuffer(buffer, CL_TRUE, 0, sizeof(T) * num_work_groups,
                           results.data(), &kernel_event, &event);
+  event.wait();
   T result =
     step * std::accumulate(std::begin(results), std::end(results), 0.0);
-  event.wait();
   std::cout << result << std::endl;
 }
 
