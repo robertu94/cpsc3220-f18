@@ -1,0 +1,41 @@
+The **question** that this paper is attempting to address is "why might a
+large C that takes 5 minutes to run for which we have source code using a
+given library program result in different memory usages for multiple runs of
+the same input?"
+
+The following is a **model** of the memory usages of a C program: The program
+binary is run on a CPU which is connected to some amount of RAM.  The binary
+allocates and frees memory using the `malloc`, `calloc`, `realloc`, and `free`
+calls.  The program could have different execution paths based on differences
+in the the CPU state, differences in the program, non-determinism in the
+program which could be intentional or unintentional, or the availability of
+other operating system resources (i.e.  high memory pressure causing the
+garbage collector running more often thus using less total memory).
+
+Since the program and associated libraries are the same between runs,
+differences cannot be accounted for by the program being different.  CPU
+non-determinism while possible is extraordinary rare often taking the form of
+single bit errors.  More consistent behavior rules out this form of error.
+There could be intentional non-determinism in the program, but if there are no
+calls to `rand` or `srand` that seems unlikely.  There could be intentional
+non-determinism caused by undefined behavior.  There could be differences in
+the availability of operating system resources, but we could run the program
+on a system with very little usage to verify that assumption.  Additionally, C
+doesn't normally use a garbage collector.  The **hypothesis** is unintentional
+non-determinism is causing the differences in memory usage.
+
+The **prediction** is as follows:
+
+1. There is non-determinism in the system.
+2. Non-determinism can be caused undefined behavior.
+3. Other forms of non-determinism listed above are not occurring.
+4. The forms of non-determinism listed above is exhaustive.
+5. Therefore, the non-determinism is caused by undefined behavior.
+
+We could **test** this by recompiling the program with the clang
+undefined-behavior sanitizer.  This has an overhead of about 20% which is
+acceptable Undefined behavior is any behavior that is not specified by the C
+standard.  If the program crashes with an undefined behavior violation, we can
+determine that program non-determinism  may have caused by undefined behavior.
+We could then confirm this be fixing the bug identified and rerunning the
+test.

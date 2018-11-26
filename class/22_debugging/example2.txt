@@ -1,0 +1,52 @@
+The **question** addressed by this essays is "why do two otherwise identical
+vector add codes compiled by the same complier, have dramatically different
+runtime when their only difference is the use of the OpenMP static vs dynamic
+scheduler?"
+
+The **model** used by this paper is as follows: When a c-complier reaches a
+OpenMP directive, it spawns some number of threads.  On the static scheduler,
+each thread recieves a consecutive range of values to preform the vector
+addition on.  On the dynamic scheduler, as each thread complete its work, it
+retrieves the next unit of work from the queue.  As it retrieves each element,
+the cpu fetches the L1 cache.  If it fails, it tries the L2 cache which is
+shared with the adjacent hyper thread.  If that fails it goes to the socket
+shared L3 cache.  If that fails it goes to main memory.  Each time, the
+operation is roughly 10 times slower.  When a value is brought into cache,
+some amount of pre-fetching occurs bringing in a given cache line.  When
+another processor writes to memory that is pre-fetched by another hardware
+thread, a cache-invalidation occurs causing the thread to reload from a slower
+level of memory.
+
+Since the only difference between the programs is the use of the static versus
+dynamic scheduler, the additional runtime could be caused by scheduler
+overhead, cache-invalidation overhead (so-called false sharing), or hyper
+thread resource conflicts.  The static scheduler requires only one mutex call
+at the beginning to divy up the range.  The dynamic scheduler has many more
+lock/unlock operations.  I could determine via a simple test program that this
+lock/unlock overhead on cache-independent data is less than a tenth of the
+overhead observed here eliminating this option.  I could also eliminate hyper
+thread resource conflicts by locking the threads to cores using `OMP_PLACE`
+directives.  This leaves the **hypothesis** to be, "the  increase in runtime
+between the codes is caused by false sharing"
+
+The **prediction** is as follows:
+
+1. The programs are identical except for the use of static vs dynamic
+	scheduler.
+2. The only causes of possible differences are listed above.
+3. The static/dynamic overhead and hyper thread conflicts do not account for
+	the differences.
+4. There are a large number of cache-invalidations.
+5. These cache invalidations are the proximate cause of the differences in runtime.
+
+The **test** procedure is as follows, run both programs using `perf stat -dd`
+to collect the number of L1 cache evictions.  These performance counters count
+when evictions occur which happen predominately during code suffering from
+false sharing.  We could control for hyper thread conflicts by using
+`OMP_PLACE` to bind the threads.  There is no overhead to using these counters
+since they are used by the processor always.
+
+The **analysis** of the results is as follows: If the slower program has a
+larger number of cache evictions, we could conclude that false sharing is
+causing this overhead.  If the cache evictions are similar, or the slower
+program has fewer, then premise 2 must be false.
